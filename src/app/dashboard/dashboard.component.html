@@ -1,1 +1,142 @@
-<p>dashboard works!</p>
+
+<div class="dashboard-container">
+  <!-- loader -->
+  <div *ngIf="loading" class="loading-overlay">
+    <mat-spinner diameter="60"></mat-spinner>
+    <p>Please wait, Loading dashboard ...</p>
+  </div>
+
+  <div *ngIf="!loading" class="dashboard-content">
+    <div class="dashboard-header">
+      <h1>Dashboard</h1>
+      <p class="subtitle">Overview of your Budgets</p>
+    </div>
+
+    <div class="stats-grid" >
+      <mat-card class="stat-card total" >
+        <mat-card-content>
+          <div class="stat-content">
+            <div class="stat-icon-wrapper total">
+              <mat-icon>assignment</mat-icon>
+            </div>
+            <div class="stat-info">
+              <p class="stat-label">Total income</p>
+              <p class="stat-value">{{IncomBalance}}</p>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="stat-card pending">
+        <mat-card-content>
+          <div class="stat-content">
+            <div class="stat-icon-wrapper pending">
+              <mat-icon>pending_actions</mat-icon>
+            </div>
+            <div class="stat-info">
+              <p class="stat-label">Total expenses</p>
+              <p class="stat-value">{{ExpenseBalance}}</p>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="stat-card in-progress">
+        <mat-card-content>
+          <div class="stat-content">
+            <div class="stat-icon-wrapper in-progress">
+              <mat-icon>sync</mat-icon>
+            </div>
+            <div class="stat-info">
+              <p class="stat-label">Remaining Income</p>
+              <p class="stat-value">{{balance}}</p>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="stat-card completed">
+        <mat-card-content>
+          <div class="stat-content">
+            <div class="stat-icon-wrapper completed">
+              <mat-icon>check_circle</mat-icon>
+            </div>
+            <div class="stat-info">
+              <p class="stat-label">No of incomes</p>
+              <p class="stat-value">{{noIncome}}</p>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="stat-card completed">
+        <mat-card-content>
+          <div class="stat-content">
+            <div class="stat-icon-wrapper completed">
+              <mat-icon>check_circle</mat-icon>
+            </div>
+            <div class="stat-info">
+              <p class="stat-label">No of expenses</p>
+              <p class="stat-value">{{noExpense}}</p>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+<!--       
+      <mat-card class="stat-card completed" (click)="navigateToUsers()"> 
+        <mat-card-content>   
+          <div class="stat-content">
+            <div class="stat-icon-wrapper completed">
+              <mat-icon>account_circle</mat-icon>
+            </div>
+            <div class="stat-info">
+              <p class="stat-label">No of Users</p>
+              <p class="stat-value">{{tUsers}}</p>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card> -->
+     
+    </div>
+
+   <!-- Recent Transactions Section -->
+<mat-card class="recent-card">
+  <mat-card-header>
+    <div class="recent-header">
+      <div class="left">
+        <mat-icon class="history-icon">history</mat-icon>
+        <span class="title">Recent Transactions</span>
+      </div>
+
+      <button mat-raised-button color="warn" (click)="navigateToTransactions()">
+        <mat-icon>list</mat-icon>
+        View All Transactions
+      </button>
+    </div>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div *ngIf="recentTransactions?.length === 0" class="empty-state">
+      <mat-icon>inbox</mat-icon>
+      <p>No recent transactions</p>
+    </div>
+
+    <div *ngIf="recentTransactions.length > 0" class="recent-list">
+      <div class="transaction-item" *ngFor="let t of recentTransactions">
+        <div class="left">
+          <mat-icon>{{ t.type === 'income' ? 'arrow_downward' : 'arrow_upward' }}</mat-icon>
+          <div>
+            <p class="txn-title">{{ t.title }}</p>
+            <p class="txn-date">{{ t.createdAt | date:'mediumDate' }}</p>
+          </div>
+        </div>
+
+        <div class="amount" [ngClass]="t.type">
+          {{ t.amount | currency:'PKR':'symbol':'1.0' }}
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+

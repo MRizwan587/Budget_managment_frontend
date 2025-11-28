@@ -1,0 +1,19 @@
+<p>create-category works!</p>
+<mat-card class="create-card">
+
+  <h2>Create New Category</h2>
+
+  <form (ngSubmit)="createCategory()">
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Category Name</mat-label>
+      <input matInput [(ngModel)]="name" name="name" required>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="full-width" type="submit">
+      Create Category
+    </button>
+
+  </form>
+
+</mat-card>

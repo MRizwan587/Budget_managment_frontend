@@ -1,0 +1,104 @@
+
+.onboarding-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #f4f4f9;
+}
+
+.onboarding-card {
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+mat-card-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #3f51b5; /* Primary color */
+}
+
+mat-card-subtitle {
+    margin-top: 5px;
+    color: #606060;
+}
+
+/* Selection State Styling */
+.selection-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.method-button {
+    height: 60px;
+    font-size: 1.1em;
+    padding: 0 20px;
+    justify-content: flex-start;
+    text-align: left;
+    transition: transform 0.2s;
+    border-radius: 8px;
+}
+
+.method-button mat-icon {
+    margin-right: 15px;
+    font-size: 24px;
+}
+
+.method-button:hover {
+    transform: translateY(-2px);
+}
+
+/* QR Code Setup Styling */
+.qr-code-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.qr-code {
+    border: 5px solid #e0e0e0;
+    padding: 5px;
+    border-radius: 8px;
+    max-width: 150px;
+    height: auto;
+}
+
+/* Verification State Styling */
+.verification-form {
+    margin-top: 20px;
+}
+
+.verification-prompt {
+    margin-bottom: 20px;
+    color: #4a4a4a;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.verify-button {
+    height: 48px;
+    font-size: 1.05em;
+    margin-top: 10px;
+}
+
+.error-message {
+    color: #f44336; /* Warn color */
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+
+.error-message mat-icon {
+    margin-right: 8px;
+    font-size: 18px;
+}

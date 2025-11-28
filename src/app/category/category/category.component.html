@@ -1,0 +1,72 @@
+<mat-card class="category-card">
+  <div class="category-header">
+    <h2>Categories</h2>
+    <button mat-raised-button color="primary" [routerLink]="['create-category']">
+      Add New Category
+    </button>
+  </div>
+
+  <div class="table-container">
+    <mat-table [dataSource]="categories">
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let cat">{{ cat.name }}</mat-cell>
+      </ng-container>
+
+      <!-- Type Column -->
+      <ng-container matColumnDef="type">
+        <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+        <mat-cell *matCellDef="let cat">
+          <span class="tag" [ngClass]="{ admin: !cat.user, user: cat.user }">
+            {{ cat.user ? 'User Category' : 'Admin Category' }}
+          </span>
+         
+        </mat-cell>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+        <mat-cell *matCellDef="let cat">
+          <button
+            *ngIf="role === 'admin'"
+            mat-icon-button
+            color="warn"
+            matTooltip="Delete Category"
+            (click)="deleteCategory(cat._id)"
+            class="action-btn"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+
+          <button
+            *ngIf="role !== 'admin' && cat.user === userId"
+            mat-icon-button
+            color="warn"
+            matTooltip="Delete Category"
+            (click)="deleteCategory(cat._id)"
+            class="action-btn"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+
+          <button
+            *ngIf="role !== 'admin' && cat.user === null"
+            mat-icon-button
+            disabled
+            matTooltip="Global category — only admin can delete"
+            class="action-btn disabled-btn"
+          >
+            <mat-icon>lock</mat-icon>
+          </button>
+        </mat-cell>
+        
+      </ng-container>
+
+     
+      <mat-header-row *matHeaderRowDef="['name', 'type', 'action']"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: ['name', 'type', 'action']"></mat-row>
+    </mat-table>
+  </div>
+</mat-card>

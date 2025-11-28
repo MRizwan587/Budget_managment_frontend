@@ -1,0 +1,115 @@
+.user-container {
+  mat-card {
+    display: flex;
+    flex-direction: column;
+    height: 91.5vh; /* adjust as needed */
+    border-radius: 8px;
+  }
+
+  /* Header */
+  mat-card-header {
+    padding: 20px 16px 0 16px;
+  }
+
+  mat-card-title h2 {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  mat-card-subtitle {
+    font-size: 14px;
+    color: #888;
+  }
+
+  /* Filters container */
+  .table-header {
+    display: flex;
+    gap: 16px;
+    padding: 10px 16px;
+    flex-shrink: 0;
+  }
+
+  .search-field {
+    flex: 1;
+    min-width: 150px;
+  }
+
+  /* Loading spinner */
+  .loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+    color: #777;
+    mat-spinner {
+      margin-bottom: 10px;
+    }
+  }
+
+  /* Scrollable table */
+  .table-container {
+    flex: 1;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 0 16px;
+  }
+
+  table.user-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th.mat-header-cell {
+      background-color: #f5f5f5;
+      font-weight: 600;
+    }
+
+    td.mat-cell {
+      font-size: 13px;
+      padding: 8px 12px;
+      vertical-align: middle;
+    }
+
+    /* No data row */
+    .no-data {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: #777;
+      mat-icon {
+        font-size: 40px;
+        margin-bottom: 8px;
+      }
+    }
+  }
+
+  /* Chips for role */
+  mat-chip {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+
+  /* Slide toggle */
+  mat-slide-toggle {
+    font-size: 12px;
+    .mat-slide-toggle-thumb {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  /* Actions */
+  .mat-icon {
+    font-size: 20px;
+  }
+
+  /* Pagination fixed bottom */
+  mat-paginator {
+    flex-shrink: 0;
+    margin: 10px 16px;
+  }
+}

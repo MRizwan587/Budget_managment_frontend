@@ -6,6 +6,9 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { CurrencyFormatPipe } from './pipes/currency-format.pipe';
 import { DateFormatPipe } from './pipes/date-format.pipe';
+import { MaterialModule } from '../material/material.module';
+import { RouterModule } from '@angular/router';
+
 
 
 
@@ -19,7 +22,17 @@ import { DateFormatPipe } from './pipes/date-format.pipe';
     DateFormatPipe
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule,
+    RouterModule
+  ],
+  exports: [
+    HeaderComponent,
+    SidebarComponent,
+    LoaderComponent,
+    ConfirmDialogComponent,
+    CurrencyFormatPipe,
+    DateFormatPipe
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,105 @@
+
+.table-container {
+  /* max-height: 80vh; you can change */
+  overflow-y: auto;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Parent card becomes full height flex container */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  height: 91vh; /* Change to 100vh if you want full screen */
+}
+
+/* Filters should NOT shrink */
+.filters {
+  flex-shrink: 0;
+  display: flex;
+  gap: 10px;
+  padding: 0 16px 16px 16px;
+}
+
+/* Header should NOT shrink */
+.transaction-header {
+  flex-shrink: 0;
+}
+
+/* Paginator fixed at bottom */
+mat-paginator {
+  flex-shrink: 0;
+  margin-top: 10px;
+}
+
+/* TABLE WRAPPER (scrolling area only) */
+.table-wrapper {
+  flex: 1;                 /* Takes all remaining space */
+  overflow-y: auto;        /* Enables internal scroll */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+
+.mat-table {
+  width: 100%;
+}
+
+.transaction-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 30px 20px 0px 10px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.create-btn {
+  height: 40px;
+}
+
+.category-pill {
+  background-color: #e3f2fd;
+  color: #1565c0;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+.type {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  color: #fff;
+}
+
+.type.income {
+  background: #4caf50;
+}
+
+.type.expense {
+  background: #f44336;
+}
+
+.amount {
+  color: #f8f8f8;
+  font-weight: 400;
+}
+
+.desc-text {
+  color: #eeeeee;
+  font-size: 13px;
+  word-break: break-word;
+  max-width: 250px;
+  display: block;
+}
+
+/* Action buttons spacing */
+mat-icon {
+  font-size: 20px;
+}

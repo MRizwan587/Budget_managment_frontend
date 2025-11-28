@@ -1,0 +1,52 @@
+.category-card {
+  display: flex;
+  flex-direction: column;
+  height: 91.5vh; /* full-height card, adjust as needed */
+  padding: 16px;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 20px 36px 20px;
+}
+
+.table-container {
+  flex: 1; /* take remaining height */
+  overflow-y: auto;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+mat-table {
+  width: 100%;
+  min-width: 400px; /* optional */
+}
+
+.tag {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.tag.admin {
+  background-color: #1976d2;
+}
+
+.tag.user {
+  background-color: #388e3c;
+}
+
+.action-btn {
+  margin-right: 8px;
+}
+
+.disabled-btn {
+  opacity: 0.4;
+}
+
+mat-icon {
+  font-size: 22px;
+}
