@@ -26,43 +26,80 @@
       </ng-container>
 
       <!-- Action Column -->
-      <ng-container matColumnDef="action">
-        <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
-        <mat-cell *matCellDef="let cat">
-          <button
-            *ngIf="role === 'admin'"
-            mat-icon-button
-            color="warn"
-            matTooltip="Delete Category"
-            (click)="deleteCategory(cat._id)"
-            class="action-btn"
-          >
-            <mat-icon>delete</mat-icon>
-          </button>
+     
+<ng-container matColumnDef="action">
+  <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+  <mat-cell *matCellDef="let cat">
 
-          <button
-            *ngIf="role !== 'admin' && cat.user === userId"
-            mat-icon-button
-            color="warn"
-            matTooltip="Delete Category"
-            (click)="deleteCategory(cat._id)"
-            class="action-btn"
-          >
-            <mat-icon>delete</mat-icon>
-          </button>
+    <!-- Delete Button (existing) -->
+    <button
+      *ngIf="role === 'admin'"
+      mat-icon-button
+      color="warn"
+      matTooltip="Delete Category"
+      (click)="deleteCategory(cat._id)"
+      class="action-btn"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
 
-          <button
-            *ngIf="role !== 'admin' && cat.user === null"
-            mat-icon-button
-            disabled
-            matTooltip="Global category — only admin can delete"
-            class="action-btn disabled-btn"
-          >
-            <mat-icon>lock</mat-icon>
-          </button>
-        </mat-cell>
-        
-      </ng-container>
+    <button
+      *ngIf="role !== 'admin' && cat.user === userId"
+      mat-icon-button
+      color="warn"
+      matTooltip="Delete Category"
+      (click)="deleteCategory(cat._id)"
+      class="action-btn"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+
+    <button
+      *ngIf="role !== 'admin' && cat.user === null"
+      mat-icon-button
+      disabled
+      matTooltip="Global category — only admin can delete"
+      class="action-btn disabled-btn"
+    >
+      <mat-icon>lock</mat-icon>
+    </button>
+
+    <!-- Edit Button -->
+    <button
+      *ngIf="role === 'admin'"
+      mat-icon-button
+      color="primary"
+      matTooltip="Edit Category"
+      [routerLink]="['create-category', cat._id]"
+      class="action-btn"
+    >
+      <mat-icon>edit</mat-icon>
+    </button>
+
+    <button
+      *ngIf="role !== 'admin' && cat.user === userId"
+      mat-icon-button
+      color="primary"
+      matTooltip="Edit Category"
+      [routerLink]="['create-category', cat._id]"
+      class="action-btn"
+    >
+      <mat-icon>edit</mat-icon>
+    </button>
+
+    <button
+      *ngIf="role !== 'admin' && cat.user === null"
+      mat-icon-button
+      disabled
+      matTooltip="Global category — only admin can edit"
+      class="action-btn disabled-btn"
+    >
+      <mat-icon>lock</mat-icon>
+    </button>
+
+  </mat-cell>
+</ng-container>
+
 
      
       <mat-header-row *matHeaderRowDef="['name', 'type', 'action']"></mat-header-row>

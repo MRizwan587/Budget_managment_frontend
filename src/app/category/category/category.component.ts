@@ -24,9 +24,6 @@ export class CategoryComponent {
     if (rawUser) {
       const user = JSON.parse(rawUser);
       this.userId = user._id;
-      console.log("useridin catagoru", this.userId);
-      
-      console.log(user,"from catagory", this.userId);
       
     }
     

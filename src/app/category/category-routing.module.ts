@@ -19,7 +19,11 @@ const routes: Routes = [
       {
         path: 'create-category',
         component: CreateCategoryComponent
-      }
+      },
+      {
+        path: 'create-category/:id',
+        component: CreateCategoryComponent
+      },
 
 ];
 

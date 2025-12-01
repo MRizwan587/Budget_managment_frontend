@@ -17,7 +17,8 @@ export class UsersComponent implements OnInit, AfterViewInit {
   pageSize = 10;
   pageIndex = 0; // 0-based for paginator
 
-  filterValues = { name: '', role: '' };
+  filterValues = { name: '', role: '', status: '' };
+
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -39,11 +40,12 @@ export class UsersComponent implements OnInit, AfterViewInit {
 
     this.userService
       .getAllUsers(
-        backendPage,
-        this.pageSize,
-        this.filterValues.name,
-        this.filterValues.role
-      )
+    backendPage,
+    this.pageSize,
+    this.filterValues.name,
+    this.filterValues.role,
+    this.filterValues.status   // add this
+  )
       .subscribe({
         next: (res: any) => {
           this.data = res.data;       // table rows

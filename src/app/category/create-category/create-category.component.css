@@ -1,9 +1,26 @@
-.create-card {
-  max-width: 500px;
-  margin: auto;
-  padding: 20px;
+/* Body ya parent container ko 100% height do */
+body, html {
+  height: 100%;
+  margin: 0;
 }
 
-.full-width {
-  width: 100%;
+/* Parent container ko flex use karke center karein */
+.create-card-wrapper {
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center;     /* vertical center */
+  height: 92vh;           /* viewport height ke barabar */
+}
+.create-card{
+  display: flex;
+  gap: 50px;
+  padding: 30px;
+  height: 40%;
+  width: 40%;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }

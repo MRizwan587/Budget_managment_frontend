@@ -49,4 +49,12 @@ export class ApiService {
   getRecentTransactions() {
   return this.http.get<any>(`${this.baseUrl}/transactions/recent`);
 }
+
+getCategoryById(id: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/categories/${id}`);
+  }
+  // Update category
+  updateCategory(id: string, payload: any): Observable<any> {
+    return this.http.put(`${this.baseUrl}/categories/${id}`, payload);
+  }
 }

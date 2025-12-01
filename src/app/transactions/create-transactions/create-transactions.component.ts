@@ -34,9 +34,8 @@ export class CreateTransactionsComponent {
   fetchCategories() {
     this.apiService.getAllCategories().subscribe({
       next: (res: any) => {
-        console.log("catagories fetched: ", res);
         
-        this.categoryList = res || [];
+        this.categoryList = res.data || [];
       },
       error: (err) => {
         console.error('Category Fetch Error:', err);
