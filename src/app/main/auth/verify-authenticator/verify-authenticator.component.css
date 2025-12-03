@@ -1,0 +1,64 @@
+
+.outer{
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.verify-wrapper {
+  max-width: 400px;
+  padding: 40px;
+  border-radius: 30px;
+  margin: 50px auto;
+  text-align: center;
+  background-color: #a7a6a6;
+  
+  
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* Style the mat-form-field background and input text */
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #fff; /* Outline color if needed */
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  color: #fff;
+}
+
+.mat-form-field-infix {
+  background-color: #000; /* black background */
+  color: #fff; /* white text */
+  border-radius: 4px;
+}
+
+.mat-input-element {
+  color: #fff; /* white text */
+}
+
+.error {
+  color: #d32f2f;
+  margin: 8px 0;
+  font-weight: 500;
+}
+mat-label{
+    color: blue;
+}
+
+.btn-submit {
+  width: 100%;
+  height: 45px;
+  margin-top: 15px;
+}
+::ng-deep .mat-mdc-text-field-wrapper {
+  background-color:rgba(0, 0, 0, 0) ;}
+/* ::ng-deep .mat-mdc-text-field-wrapper {
+  border: 2px solid #d32f2f;} */
+
+  ::ng-deep .mat-mdc-text-field-wrapper.mat-mdc-text-field-focused {
+  border: 5px solid #d32f2f; /* same as default to avoid doubling */
+  box-shadow: none; /* remove any shadow that appears on focus */
+}

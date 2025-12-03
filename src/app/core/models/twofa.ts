@@ -10,7 +10,7 @@ export interface ITwoFASetupRequest {
 
 export interface ITwoFASetupResponse {
   message: string;
-  secretKey?: string;  // if using Authenticator app
+  secretKey?: string; 
   OTPAuthUrl?: string;
   QrCode_Image: string;
 }

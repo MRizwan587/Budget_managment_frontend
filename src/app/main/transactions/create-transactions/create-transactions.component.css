@@ -1,0 +1,18 @@
+.outer{
+  height: 88vh;
+}
+
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+
+}
+
+.card {
+  padding: 20px;
+}
+
+.full {
+  width: 100%;
+  margin-bottom: 16px;
+}

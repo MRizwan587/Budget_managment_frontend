@@ -2,42 +2,29 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SharedModule } from './shared/shared.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { UsersComponent } from './users/users.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MainLayoutComponent } from './main-layout/main-layout.component';
-import { MaterialModule } from './material/material.module';
+import { MaterialModule } from './core/material/material.module';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { FormsModule } from '@angular/forms';
-import { TransactionsModule } from './transactions/transactions.module';
-import { CategoryModule } from './category/category.module';
-
+import { MainModule } from './main/main.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DashboardComponent,
-    UsersComponent,
-    MainLayoutComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule,
     BrowserAnimationsModule,
     MaterialModule,
     RouterModule,
     HttpClientModule,
     FormsModule,
-    TransactionsModule,
-    CategoryModule
-    
-
+    MainModule,
+    CoreModule,
   ],
   providers: [
     {
@@ -49,8 +36,8 @@ import { CategoryModule } from './category/category.module';
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
       multi: true,
-    }
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

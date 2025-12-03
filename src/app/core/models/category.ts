@@ -3,7 +3,7 @@ export interface ICategory {
   name: string;
   type: CategoryType;
   isActive: boolean;
-  user: string | null;    // null → global
+  user: string | null;   
   createdAt: string;
 }
 
