@@ -26,7 +26,6 @@ export class UserService {
 
   getRole(): any {
     const role= localStorage.getItem('role')?.replace(/"/g, '').toLowerCase();
-    console.log('role from the service: ', role);
     return role;
   }
   

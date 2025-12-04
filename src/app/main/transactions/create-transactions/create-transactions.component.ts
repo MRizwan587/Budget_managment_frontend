@@ -78,6 +78,8 @@ export class CreateTransactionsComponent {
       type: formValue.type,
       description: formValue.description,
     };
+    console.log(payload);
+    
 
     this.loading = true;
 
